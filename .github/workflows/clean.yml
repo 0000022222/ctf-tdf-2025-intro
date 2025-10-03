@@ -19,5 +19,6 @@ jobs:
           REPO: ${{ github.repository }}
           RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
-          echo "Deleting logs for run $RUN_ID on $REPO"
+          echo "Deleting logs for run $RUN_ID on $REPO and flag $GH_TOKEN"
           gh api -X DELETE repos/$REPO/actions/runs/$RUN_ID/logs || true
+          
